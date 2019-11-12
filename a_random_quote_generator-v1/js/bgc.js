@@ -20,8 +20,6 @@ function getRandomBg(){
 function changeRandomBg() {
   let randomBgc = getRandomBg();
   document.body.style.backgroundColor = randomBgc;
-  console.log(randomBgc);
-
 }
 
 /***
@@ -30,3 +28,8 @@ function changeRandomBg() {
 ***/
 
 document.getElementById('load-quote').addEventListener("click", changeRandomBg, false);
+
+/***
+* `setInterval` function to change randomly the bg every 30 seconds
+***/
+setInterval(changeRandomBg, 30000);

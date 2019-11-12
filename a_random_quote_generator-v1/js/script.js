@@ -16,31 +16,34 @@ var quotes = [
      quote: 'Los grandes nunca descienden',
      source: 'Bebote Alvarez',
      citation: 'Indesingente',
-     year: 2013
+     year: 2013,
   },
   {
      quote: 'Vamos mal, pero venimos bien',
      source: 'El Gato',
    //   citation: 'Chetoslovaquia',
-     year: 2015
+     year: 2015,
+     tag: 'politics'
   },
   {
      quote: 'Los sueños, sueños son, pero aqui se hacen realidad',
      source: 'Eber Hugo',
      citation: 'atrevase a soñar',
-     year: 1991
+     year: 1991,
+     tag: 'tv show'
   },
   {
      quote: 'Corte, sonrisa, corte, sonrisa',
      source: 'Diego',
      citation: 'Clasico platense',
-     year: 2019,
+     tag: 'sports'
   },
   {
    quote: 'El que deposito dolares, recibira dolares',
    source: 'Eduardo Duhalde',
    citation: 'Argenzuela',
-   year: 2001
+   year: 2001,
+   tag: 'politics'
 },
 ];
 
@@ -69,7 +72,9 @@ function printQuote() {
          print += '<span class="citation">' + random.citation + '</span>';
          } if( random.hasOwnProperty('year')){
             print += '<span class="year">' + random.year + '</span>';
-            }
+            } if( random.hasOwnProperty('tag')){
+               print += '<span class="year">' + random.tag + '</span>';
+               }
    print += '</p>';
    document.getElementById('quote-box').innerHTML = print;
    return print;
@@ -83,3 +88,8 @@ function printQuote() {
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
+
+/***
+* `setInterval` function to change randomly the quote 30 seconds
+***/
+setInterval(printQuote, 30000);
