@@ -41,7 +41,7 @@ var quotes = [
    source: 'Eduardo Duhalde',
    citation: 'Argenzuela',
    year: 2001
-},  
+},
 ];
 
 //
@@ -56,7 +56,7 @@ function getRandomQuote() {
    }
    randomQuote = quotes[randomQuote];
    return randomQuote;
-} 
+}
   /***
  * `printQuote` function
 ***/
@@ -69,15 +69,40 @@ function printQuote() {
          print += '<span class="citation">' + random.citation + '</span>';
          } if( random.hasOwnProperty('year')){
             print += '<span class="year">' + random.year + '</span>';
-            }         
+            }
    print += '</p>';
    document.getElementById('quote-box').innerHTML = print;
    return print;
-} 
+}
+
+/***
+* `getRandomBg` function to get a random rgb number
+***/
+
+function getRandomBg(){
+  let randomBg;
+  for (var i = 1; i <= 100; i += 1) {
+     red = Math.floor(Math.random() * 256 );
+     green = Math.floor(Math.random() * 256 );
+     blue = Math.floor(Math.random() * 256 );
+     randomBg = 'rgb(' + red + ',' + green + ',' + blue + ')';
+  } return randomBg;
+}
+
+/***
+* `changeRandomBg` function to use that number and change the body background
+***/
+
+function changeRandomBg() {
+  let randomBgc = getRandomBg();
+  document.body.style.backgroundColor = randomBgc;
+  console.log(randomBgc);
+
+}
 
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE OF CODE BELOW!!
 ***/
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, changeRandomBg, false);
